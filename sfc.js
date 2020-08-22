@@ -8,7 +8,7 @@ const typesToString = (containerId, examplesObj) => {
     }
   }
 
-const typesToBool = (containerId, examplesObj) => {
+const typesToBoolean = (containerId, examplesObj) => {
   let container = document.getElementById(containerId);
   let keys = Object.keys(examplesObj);
   for(let i = 0; i < keys.length; i++) {
