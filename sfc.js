@@ -10,7 +10,12 @@ const buildTheList = (examplesObj, to) => {
   let keys = Object.keys(examplesObj);
   for(let i = 0; i < keys.length; i++) {
     let el = document.createElement('div');
-    let out = `<strong>${keys[i]}</strong> - ${to === 'typeof' ? typeof(examplesObj[keys[i]]) : to(examplesObj[keys[i]])}`;
+    let out = 'error;'
+    try {
+      out = `<strong>${keys[i]}</strong> - ${to === 'typeof' ? typeof(examplesObj[keys[i]]) : to(examplesObj[keys[i]])}`;
+    } catch(e) {
+      console.log(e)
+    }
     el.innerHTML =  out;
     container.appendChild(el);
   }
@@ -122,7 +127,7 @@ window.sfc = sfc;
 // let all = {a,b,c,d,e,f,g,h,i,j,k,l,m}
 
 // window.addEventListener('load', () => {
-//   // sfc.massTypeOf(all)
+//   sfc.typesToNumber(all)
 
 //   stupidCircle();
 //   stupidCircle(2, 50, 'blue', 5);
